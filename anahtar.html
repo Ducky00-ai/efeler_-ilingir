@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFELER ANAHTAR 🔑 | Profesyonel Çilingir ve Anahtar Servisi</title>
+    <meta name="description" content="Efeler Aydın'da 7/24 profesyonel çilingir hizmeti. Kapı açma, oto anahtar, kilit değişimi, anahtar kopyalama. 20 dakikada adresinizdeyiz. ☎ 0541 716 31 48">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a0e14;
+            --secondary-bg: #11161e;
+            --card-bg: #181f2a;
+            --accent: #f59e0b;
+            --accent-bright: #fbbf24;
+            --accent-gold: #d97706;
+            --danger: #ef4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border-color: #1e293b;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.5);
+            --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--accent); color: var(--primary-bg); }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* === TOP BAR === */
+        .topbar {
+            background: linear-gradient(90deg, #1a1a1a, #2d2d2d);
+            border-bottom: 1px solid #333;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .topbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 45px;
+            color: var(--text-secondary);
+        }
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #4ade80;
+            font-weight: 600;
+        }
+        .live-indicator {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; box-shadow: 0 0 15px #4ade80; }
+            50% { opacity: 0.5; box-shadow: 0 0 5px #4ade80; }
+        }
+        .topbar-right { color: var(--text-muted); }
+
+        /* === NAVBAR === */
+        .navbar {
+            background: rgba(10, 14, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .navbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            gap: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            white-space: nowrap;
+        }
+        .logo-icon {
+            font-size: 2.2rem;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        .logo-main {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+        }
+        .logo-accent {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        .nav-links a:hover {
+            color: var(--accent-bright);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .phone-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent));
+            color: var(--primary-bg);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+            white-space: nowrap;
+        }
+        .phone-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+        }
+
+        /* === HERO === */
+        .hero {
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(217, 119, 6, 0.15), transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(245, 158, 11, 0.1), transparent 50%),
+                var(--primary-bg);
+            padding: 100px 0 120px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-bright);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent-bright), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            max-width: 500px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: var(--primary-bg);
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.6);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent-bright);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: var(--accent-bright);
+        }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 32px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-bright);
+            font-family: var(--font-mono);
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            max-width: 400px;
+            width: 100%;
+        }
+        .hero-card .key-icon {
+            font-size: 6rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .hero-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .hero-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* === SERVICES === */
+        .services-section {
+            background: var(--secondary-bg);
+            padding: 100px 0;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.4s;
+        }
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* === EMERGENCY CTA === */
+        .emergency-cta {
+            background: linear-gradient(135deg, #f59e0b, #d97706, #b45309);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .emergency-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .emergency-cta .phone-display {
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: var(--primary-bg);
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <div class="topbar-left">
+                <span class="live-indicator"></span>
+                7/24 ACİL SERVİS AKTİF
+            </div>
+            <div class="topbar-right">
+                ⚡ ORTALAMA VARIŞ: 20 DAKİKA
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="#" class="logo">
+                <span class="logo-icon">🔑</span>
+                <span class="logo-text">
+                    <span class="logo-main">EFELER ANAHTAR</span>
+                    <span class="logo-accent">PROFESYONEL ÇİLİNGİR</span>
+                </span>
+            </a>
+            <div class="nav-links">
+                <a href="#hizmetler">Hizmetler</a>
+                <a href="#bolgeler">Bölgeler</a>
+                <a href="#neden-biz">Neden Biz?</a>
+                <a href="#iletisim">İletişim</a>
+            </div>
+            <div class="nav-cta">
+                <a href="tel:05417163148" class="phone-btn">
+                    📞 0541 716 31 48
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="hero-badge">🔐 AYDIN & EFELER MERKEZ</span>
+                <h1>Kilitler Açılır,<br><span class="highlight">Sorunlar Çözülür</span></h1>
+                <p class="hero-sub">
+                    Profesyonel çilingir hizmetinde güven ve hız. 
+                    Kapı açma, oto anahtar, kilit değişimi ve daha fazlası 
+                    için tek telefon yeterli.
+                </p>
+                <div class="hero-actions">
+                    <a href="tel:05417163148" class="btn-primary">
+                        📞 HEMEN ARA
+                    </a>
+                    <a href="#hizmetler" class="btn-outline">
+                        HİZMETLERİ İNCELE
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">7/24</div>
+                        <div class="stat-label">Hizmet</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20dk</div>
+                        <div class="stat-label">Varış</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Yıl Tecrübe</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">%100</div>
+                        <div class="stat-label">Memnuniyet</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="key-icon">🔑</div>
+                    <h3>EFELER ANAHTAR</h3>
+                    <p>Profesyonel ve güvenilir çilingir hizmeti</p>
+                    <a href="tel:05417163148" style="color: var(--accent); font-weight: 700; font-size: 1.3rem;">
+                        0541 716 31 48
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="hizmetler" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">HİZMETLERİMİZ</span>
+                <h2>Uzman Çözümler</h2>
+                <p>Her türlü kilit ve anahtar sorunu için profesyonel ekip</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚪</div>
+                    <h3>Kapı Açma</h3>
+                    <p>Hasarsız açım teknikleri ile ev ve işyeri kapıları. Acil durumlarda 20 dakikada müdahale.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Oto Çilingir</h3>
+                    <p>Araç kapı açma, immobilizer çözümleri ve acil durum müdahalesi. Tüm marka ve modeller.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3>Anahtar Kodlama</h3>
+                    <p>Oto anahtar kodlama, yedek anahtar ve kumanda programlama hizmetleri.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Kilit Değişimi</h3>
+                    <p>Çelik kapı kilit değişimi, göbek yenileme ve yüksek güvenlikli kilit montajı.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Anahtar Kopyalama</h3>
+                    <p>Yerinde hızlı anahtar kopyalama. Ev, işyeri ve site anahtarları için uygun fiyat.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔐</div>
+                    <h3>Kasa Açımı</h3>
+                    <p>Şifre unutma ve arıza durumlarında hasarsız kasa açımı. Güvenli ve profesyonel müdahale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMERGENCY CTA -->
+    <section class="emergency-cta">
+        <div class="container">
+            <h2>🔑 ACİL ÇİLİNGİR İHTİYACINIZ MI VAR?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Hemen arayın, ekiplerimiz 20 dakikada yanınızda!</p>
+            <div class="phone-display">0541 716 31 48</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="iletisim">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>EFELER ANAHTAR 🔑</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                        Aydın Efeler merkezli profesyonel çilingir hizmeti. 
+                        7/24 acil servis, güvenilir ve hızlı çözüm.
+                    </p>
+                    <a href="tel:05417163148" class="btn-primary" style="display: inline-flex;">
+                        📞 0541 716 31 48
+                    </a>
+                </div>
+                <div>
+                    <h4>Hizmetlerimiz</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Kapı Açma</a></li>
+                        <li><a href="#">Oto Çilingir</a></li>
+                        <li><a href="#">Kilit Değişimi</a></li>
+                        <li><a href="#">Anahtar Kopyalama</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Adres</h4>
+                    <p style="color: var(--text-secondary);">
+                        📍 Güzelhisar Mah. Kıbrıs Cad. No:75<br>
+                        Efeler / Aydın<br>
+                        <small style="color: var(--text-muted);">(Tığ Ekmek Fırını Çaprazı)</small>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EFELER ANAHTAR 🔑 - Tüm Hakları Saklıdır | 7/24 Acil Servis: 0541 716 31 48</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
